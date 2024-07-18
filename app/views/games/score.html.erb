@@ -1,0 +1,34 @@
+<header>
+  <div class="container">
+    <nav>
+    <p>LONGEST WORD-GAME</p>
+    <div>
+      <ul>
+        <li><%=link_to "French TV Show", "https://fr.wikipedia.org/wiki/Des_chiffres_et_des_lettres", target: :blank%></li>
+        <li><%=link_to "English TV Show", "https://en.wikipedia.org/wiki/Countdown_(game_show)", target: :blank%></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <h1>Result</h1>
+    <% if @included %>
+      <% if @is_english %>
+        <p>The word "<%= @word_found %>" can be created from the original grid of letters which is <%= @letters.join(' ') %>, and it's a valid English word.</p>
+        <p>Congratulations!</p>
+      <% else %>
+        <p>The word "<%= @word_found %>" can be created from the original grid of letters which is <%= @letters.join(' ') %>, but it's not an English word.</p>
+      <% end %>
+    <% else %>
+      <p>The word "<%= @word_found %>" cannot be created from the original grid of letters which is <%= @letters.join(' ') %>.</p>
+      <% if !@is_english %>
+        <p>Additionally, it's not an English word.</p>
+      <% end %>
+    <% end %>
+    <p>Your total score: <%= session[:total_score] %></p>
+    <p id="button"><%=link_to "New Game", new_path%></p>
+    <p id="button"><%=link_to "End Game", home_path%></p>
+  </div>
+</main>

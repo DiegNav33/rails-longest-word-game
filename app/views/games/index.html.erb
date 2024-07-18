@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <nav>
+    <p>LONGEST WORD-GAME</p>
+    <div>
+      <ul>
+        <li><%=link_to "French TV Show", "https://fr.wikipedia.org/wiki/Des_chiffres_et_des_lettres", target: :blank%></li>
+        <li><%=link_to "English TV Show", "https://en.wikipedia.org/wiki/Countdown_(game_show)", target: :blank%></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+</header>
+<main>
+  <div class="container" id="index">
+    <h1>******** Welcome ********</h1>
+    <article>
+      <h2>About the game!</h2>
+      <p>If you watch French TV, you may have stumbled upon Des chiffres et des lettres. One of the many equivalent programs in English is Countdown!</p>
+      <ul>
+        <li>You are given a random set of letters.</li>
+        <li>You have to enter the longest english word you can find using only letters in the grid.</li>
+        <li>After typing your answer, you get your score combined with the time you took, and eventually an error message if you failed.</li>
+      </ul>
+      <h3>GOOD LUCK!</h3>
+    </article>
+    <p id="button"><%=link_to "New Game", new_path%></p>
+  </div>
+</main>

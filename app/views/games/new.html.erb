@@ -1,0 +1,31 @@
+<header>
+  <div class="container">
+    <nav>
+    <p>LONGEST WORD-GAME</p>
+    <div>
+      <ul>
+        <li><%=link_to "French TV Show", "https://fr.wikipedia.org/wiki/Des_chiffres_et_des_lettres", target: :blank%></li>
+        <li><%=link_to "English TV Show", "https://en.wikipedia.org/wiki/Countdown_(game_show)", target: :blank%></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <h1>New Game</h1>
+    <ul id="randomLetter">
+      <%@letters.each do |letter|%>
+      <li><%=letter%></li>
+      <%end%>
+    </ul>
+    <form action="/score" method="POST" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters%>
+      <p>What is the longest word you can find?</p>
+      <input type="text" name="word" value="<%=params[:word]%>" placeholder="Your word...">
+      <input type="submit" value="play">
+    </form>
+    <p id="button"><%=link_to "Back", home_path%></p>
+  </div>
+</main>
